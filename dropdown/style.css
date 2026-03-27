@@ -1,0 +1,97 @@
+.main__div {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.menu {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    border: 1px solid red;
+    padding: 0 40px;
+}
+
+.nav {
+    min-width: 220px;
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.nav__elem {
+    position: relative;
+}
+
+.nav__elem__head {
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: -1px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav__elem[data-is-open="true"] .nav__elem__head {
+    border: 1px solid gray;
+    border-bottom: 0;
+    background: #2a2828;
+}
+
+.nav__elem[data-is-open="true"] .nav__elem__head > .arrow {
+    transform: rotate(-135deg);
+    margin-top: 7px;
+}
+
+.nav__elem__content {
+    position: absolute;
+    top: calc(100% - 1px);
+
+    display: grid;
+    grid-template-rows: 0fr;
+    min-height: 0;
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #2a2828;
+
+    border-radius: 0 0 10px 10px;
+
+    transition: grid-template-rows 0.3s ease;
+}
+
+.nav__elem[data-is-open="true"] .nav__elem__content {
+    grid-template-rows: 1fr;
+    border: 1px solid gray;
+    border-top: 0;
+}
+
+.nav__elem__content > .content__wrapper {
+    overflow: hidden;
+}
+
+.nav__content__elem {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.arrow {
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid gray;
+    border-bottom: 2px solid gray;
+    transform: rotate(45deg);
+
+    transition: all 0.3s ease;
+}
